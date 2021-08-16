@@ -1,7 +1,7 @@
 package _02_gotta_catchem_all;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 
 
@@ -32,7 +32,20 @@ class ExceptionsTest {
 	//3. Complete the JUnit test method to test the divide method.
 	@Test
 	public void testDivideByZeroException() {
-		
+		try {
+			int val = ExceptionMethods.divide(5,5);
+			assertEquals(val, 1);
+		} catch (Exception e) {
+			fail("DivideByZero was thrown");
+		}
+		try {
+			
+			int val = ExceptionMethods.divide(5,0);
+			assertEquals(val, 0);
+			fail("DivideByZero not thrown");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	//4. In the ExceptionMethods class, write a method called reverseString that takes a
@@ -42,10 +55,19 @@ class ExceptionsTest {
 	//5. Complete the JUnit test method to test the reverseStringMethod.
 	@Test
 	public void testReverseString() {
-		
+		try {
+			String val = ExceptionMethods.reverse("Pizza");
+			assertEquals(val, "azziP");
+		} catch (Exception e) {
+			fail("Exception was thrown");
+		}
+		try {
+			
+			String val = ExceptionMethods.reverse("");
+			assertEquals(val, "");
+			fail("DivideByZero not thrown");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
-	
-	
-
 }
